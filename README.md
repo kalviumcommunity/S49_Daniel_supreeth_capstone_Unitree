@@ -1,14 +1,59 @@
-# S49_Daniel_supreeth_capstone_Unitree
-Hello everyone this is my capstone project called Unitree it is an Crodfunding website.
+**UNITREE**
 
-Unitree helps people in need by connecting them with kind donors. With easy sign-up and blog features, those seeking help can share their stories, while donors can give money or items for sale. This quick process ensures swift aid for those facing tough times, building a community where kindness matters most. Together, we're changing lives, making a world where care and support are what truly count
+Unitree is a crowdfunding platform designed to connect individuals in need with generous donors. It facilitates a seamless and supportive community where users can share their stories and receive aid. With features like easy sign-up and blogging, Unitree aims to make a significant impact by streamlining the process of giving and receiving support.
 
-I hope you guys find it usefull.
+**Features**
 
-DAY TO DAY PLAN 
+**Easy Sign-Up:** 
 
-DAY 1 - CREATING DATBASE IN BACKEND
+Quick and straightforward registration for both seekers and donors.
 
-DAY 2 - CREATING INDIVIUAL SCHEMA
+**Blogging:** 
 
-DAY 3 - CREATING REACT FILES IN FRONTEND
+Seekers can share their stories and updates to keep their supporters informed.
+
+**Donations:**
+
+Donors can contribute money or items directly through the platform.
+
+**Community Building:**
+
+A platform to foster a community where kindness and support are central.
+
+**How It Works**
+
+**For Seekers:**
+
+-Register and create a profile.
+
+-Share your story through blog posts.
+
+-Receive support from donors who resonate with your cause.
+
+**For Donors:**
+
+-Register and browse through stories.
+
+-Choose to donate money or items.
+
+-Engage with the community and support those in need.
+
+**Day-to-Day Plan**
+
+DAY 1 - Creating Database in Backend
+
+--Set up the database infrastructure.
+
+--Design the schema and relationships between tables.
+
+DAY 2 - Creating Individual Schema
+
+--Define schemas for users, donations, and blog posts.
+
+--Implement CRUD operations for each schema.
+
+DAY 3 - Creating React Files in Frontend
+
+--Set up the React project structure.
+
+--Develop components for user registration, profile management, and blog posts.
