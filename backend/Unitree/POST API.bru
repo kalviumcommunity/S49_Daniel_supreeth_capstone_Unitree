@@ -5,16 +5,19 @@ meta {
 }
 
 post {
-  url: http://localhost:3001/api/register
+  url: http://localhost:3001/api/login
   body: json
   auth: none
 }
 
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjZiYzhmM2ZiODQyZDQ3Mjg1NmM0NSIsImlhdCI6MTc0MDAyOTEzMiwiZXhwIjoxNzQwMDMyNzMyfQ.hpjqQQyaLA6AbdSPPnq2jz5dDSyIWp1oc4U0juuDgzM
+}
+
 body:json {
   {
-      "username": "testuser",
-      "email": "testuser@example.com",
-      "password": "password123"
+    "email": "test@example.com",
+    "password": "testpassword"
   }
   
 }
