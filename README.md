@@ -58,4 +58,6 @@ DAY 3 - Creating React Files in Frontend
 
 --Develop components for user registration, profile management, and blog posts.
 
-Backend Depolyment Link : https://s49-daniel-supreeth-capstone-unitree.onrender.com/api/users
+Backend Deployment Link : https://s49-daniel-supreeth-capstone-unitree.onrender.com/api/users
+
+Frontend Deployment Link : https://unitree.netlify.app/
