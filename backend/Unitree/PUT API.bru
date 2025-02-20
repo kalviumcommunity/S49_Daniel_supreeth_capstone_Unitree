@@ -1,0 +1,28 @@
+meta {
+  name: PUT API
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:3001/api/update/67b6bc8f3fb842d472856c45
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjZiYzhmM2ZiODQyZDQ3Mjg1NmM0NSIsImlhdCI6MTc0MDAyOTQxOSwiZXhwIjoxNzQwMDMzMDE5fQ.mtLUSjNzFhB6Gq8S-NByH-lmpgFdye-7jPSxfp_CsIc
+}
+
+body:json {
+  {
+    "username": "UpdatedUser",
+    "email": "updated@example.com"
+  }
+  
+}
+
+tests {
+  Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YjZiYzhmM2ZiODQyZDQ3Mjg1NmM0NSIsImlhdCI6MTc0MDAyOTEzMiwiZXhwIjoxNzQwMDMyNzMyfQ.hpjqQQyaLA6AbdSPPnq2jz5dDSyIWp1oc4U0juuDgzM>
+  
+}
