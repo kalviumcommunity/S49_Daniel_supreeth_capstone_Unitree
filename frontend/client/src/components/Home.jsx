@@ -12,7 +12,7 @@ const campaigns = [
     goal: 5000,
     supporters: 42,
     image:
-      "https://images.unsplash.com/photo-1596386461350-02b5c1a0a9c8?auto=format&fit=crop&w=800&q=80",
+      "https://i.ytimg.com/vi/MBIYebUgVVI/maxresdefault.jpg",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const campaigns = [
     goal: 15000,
     supporters: 97,
     image:
-      "https://images.unsplash.com/photo-1588776814546-ec7d8e26b38d?auto=format&fit=crop&w=800&q=80",
+      "https://media.istockphoto.com/id/531693616/photo/everyones-relieved-hes-on-the-mend.jpg?s=612x612&w=0&k=20&c=aEUGNMx7oO4r83HFkKwfR-IUEyE8fQsqxYrdAENhNF8=",
   },
   {
     id: 3,
@@ -63,9 +63,12 @@ export default function HomePage() {
   Sign Up
 </Link>
 
-          <button className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all">
+         <Link
+            to="/start-campaign"
+            className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all"
+          >
             Start Campaign
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -83,12 +86,18 @@ export default function HomePage() {
           impact.
         </p>
         <div className="flex justify-center gap-4">
-          <button className="bg-orange-500 hover:bg-orange-600 transition-all px-6 py-3 rounded-lg text-white font-medium">
+          <Link
+            to="/campaigns"
+            className="bg-orange-500 hover:bg-orange-600 transition-all px-6 py-3 rounded-lg text-white font-medium"
+          >
             Browse Campaigns
-          </button>
-          <button className="bg-white/10 border border-white hover:bg-white/20 transition-all px-6 py-3 rounded-lg text-white font-medium">
+          </Link>
+          <Link
+            to="/donate-items"
+            className="bg-white/10 border border-white hover:bg-white/20 transition-all px-6 py-3 rounded-lg text-white font-medium"
+          >
             Donate Items
-          </button>
+          </Link>
         </div>
       </section>
 
