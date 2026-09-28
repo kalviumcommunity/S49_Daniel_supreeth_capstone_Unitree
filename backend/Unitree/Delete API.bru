@@ -5,7 +5,11 @@ meta {
 }
 
 delete {
-  url: http://localhost:3001/api/delete/{id}
+  url: http://localhost:3001/api/users/me
   body: none
-  auth: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: <paste token from POST API>
 }

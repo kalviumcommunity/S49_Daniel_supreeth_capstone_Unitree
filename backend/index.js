@@ -1,18 +1,16 @@
-require('dotenv').config();
-const express = require("express");
-const cors = require("cors");
+require("dotenv").config();
 const connectDB = require("./config/db");
-const userRouter = require("./routes/userRouter");
+const app = require("./app");
 
-const app = express();
-app.use(express.json());
-app.use(cors());
-
-connectDB();
-
-app.use("/api", userRouter);
+if (!process.env.JWT_SECRET) {
+    console.error("JWT_SECRET is not set. Add it to backend/.env");
+    process.exit(1);
+}
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
 });
