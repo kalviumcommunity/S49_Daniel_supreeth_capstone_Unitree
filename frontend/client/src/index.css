@@ -1,1 +1,43 @@
 @import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-800 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary,
+  .btn-accent,
+  .btn-outline,
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-sm;
+  }
+  .btn-accent {
+    @apply bg-orange-500 text-white hover:bg-orange-600 shadow-sm;
+  }
+  .btn-outline {
+    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-100;
+  }
+  .btn-danger {
+    @apply bg-red-50 text-red-600 border border-red-200 hover:bg-red-100;
+  }
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition;
+  }
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-md;
+  }
+  .page {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 py-10;
+  }
+  .prose-text {
+    @apply whitespace-pre-line leading-relaxed text-gray-700;
+  }
+}
