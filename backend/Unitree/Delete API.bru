@@ -1,0 +1,15 @@
+meta {
+  name: Delete API
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:3001/api/users/me
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: <paste token from POST API>
+}

@@ -2,6 +2,7 @@
 
 Unitree is a crowdfunding platform designed to connect individuals in need with generous donors. It facilitates a seamless and supportive community where users can share their stories and receive aid. With features like easy sign-up and blogging, Unitree aims to make a significant impact by streamlining the process of giving and receiving support.
 
+**Frontend:** https://unitree.netlify.app/  
 **Backend:** https://s49-daniel-supreeth-capstone-unitree.onrender.com/api
 
 ## Features
@@ -103,12 +104,12 @@ npm run dev              # http://localhost:5173
    - `ADMIN_EMAILS`: your email
    - `VITE_API_URL`: the API URL plus `/api`, e.g. `https://unitree-api.onrender.com/api`
 
-### Option B: existing Render backend + Vercel or Netlify frontend
+### Option B: existing Render backend + Netlify frontend (current setup)
 
 - **Backend (Render web service):** root directory `backend`, build command `npm install`, start command `npm start`. Add the backend environment variables above.
-- **Frontend (Vercel or Netlify):** root directory `frontend/client`, build command `npm run build`, output directory `dist`. Set `VITE_API_URL=https://s49-daniel-supreeth-capstone-unitree.onrender.com/api`. Page refreshes on routes like `/campaigns/123` already work: `vercel.json` handles this on Vercel and `public/_redirects` on Netlify.
+- **Frontend (Netlify, or Vercel):** base directory `frontend/client`, build command `npm run build`, output directory `dist`. Set `VITE_API_URL=https://s49-daniel-supreeth-capstone-unitree.onrender.com/api`. Page refreshes on routes like `/campaigns/123` already work: `vercel.json` handles this on Vercel and `public/_redirects` on Netlify.
 
-After the frontend is live, set `CLIENT_URL` on the backend to the frontend URL and redeploy the backend.
+After the frontend is live, set `CLIENT_URL` on the backend to the frontend URL (`https://unitree.netlify.app`) and redeploy the backend.
 
 ## API reference
 
@@ -123,6 +124,7 @@ All routes start with `/api`. 🔒 means the route needs an `Authorization: Bear
 | GET | `/users/:id` | public profile with campaigns, posts, items |
 | PUT 🔒 | `/users/me` | update profile |
 | PUT 🔒 | `/users/me/password` | change password |
+| DELETE 🔒 | `/users/me` or `/users/:id` | delete account (self, or any user as admin); `/delete/:id` also works |
 | GET | `/campaigns` | list (`search`, `category`, `status`, `sort`, `creator`, `page`, `limit`) |
 | GET | `/campaigns/categories` | category list |
 | GET | `/campaigns/:id` | campaign with recent donations and updates |

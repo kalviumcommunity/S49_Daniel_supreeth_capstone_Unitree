@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Megaphone, Heart, Package, PenLine, Settings, Inbox, HandHeart, Plus } from "lucide-react";
 import api, { getErrorMessage } from "../lib/api";
 import useApi from "../lib/useApi";
@@ -222,7 +222,8 @@ function MyPosts({ userId }) {
 }
 
 function SettingsTab() {
-  const { user, setUser } = useAuth();
+  const { user, setUser, logout } = useAuth();
+  const navigate = useNavigate();
   const [profile, setProfile] = useState({
     username: user.username,
     email: user.email,
@@ -267,6 +268,17 @@ function SettingsTab() {
     }
   };
 
+  const deleteAccount = async () => {
+    if (!window.confirm("Delete your account permanently? Your posts and items will be removed.")) return;
+    try {
+      await api.delete("/users/me");
+      logout();
+      navigate("/");
+    } catch (err) {
+      setStatus((s) => ({ ...s, password: { type: "error", text: getErrorMessage(err) } }));
+    }
+  };
+
   const change = (e) => setProfile({ ...profile, [e.target.name]: e.target.value });
 
   return (
@@ -301,6 +313,14 @@ function SettingsTab() {
         {status.password && <Alert type={status.password.type}>{status.password.text}</Alert>}
         <button disabled={saving === "password"} className="btn-outline w-full">{saving === "password" && <Spinner size={16} />} Update password</button>
       </form>
+
+      <div className="card p-6 space-y-3 lg:col-span-3 border border-red-100">
+        <h2 className="text-lg font-semibold text-red-600">Delete account</h2>
+        <p className="text-sm text-gray-600">
+          Removes your profile, posts and listed items. Donation records are kept, and campaigns that received donations are closed.
+        </p>
+        <button type="button" onClick={deleteAccount} className="btn-danger">Delete my account</button>
+      </div>
     </div>
   );
 }

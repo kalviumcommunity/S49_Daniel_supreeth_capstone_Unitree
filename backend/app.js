@@ -43,6 +43,11 @@ app.use("/api/auth", authRoutes);
 // Legacy paths (/api/register, /api/login) kept for older clients
 app.use("/api", authRoutes);
 app.use("/api/users", userRoutes);
+// Legacy path (/api/delete/:id) kept for older clients
+app.delete("/api/delete/:id", (req, res, next) => {
+    req.url = `/${req.params.id}`;
+    userRoutes(req, res, next);
+});
 app.use("/api/campaigns", campaignRoutes);
 app.use("/api/donations", donationRoutes);
 app.use("/api/posts", postRoutes);

@@ -60,6 +60,37 @@ router.put(
     })
 );
 
+// Deletes an account (the user themself, or an admin).
+// Donation records are kept for accountability; funded campaigns are closed instead of deleted.
+router.delete(
+    "/:id",
+    protect,
+    asyncHandler(async (req, res) => {
+        const id = req.params.id === "me" ? String(req.user._id) : req.params.id;
+        if (id !== String(req.user._id) && req.user.role !== "admin") {
+            throw new HttpError(403, "You can only delete your own account");
+        }
+
+        const user = await User.findById(id);
+        if (!user) throw new HttpError(404, "User not found");
+
+        await Promise.all([
+            Post.deleteMany({ author: user._id }),
+            Item.deleteMany({ donor: user._id }),
+            Item.updateMany(
+                { claimedBy: user._id, status: "claimed" },
+                { status: "available", $unset: { claimedBy: 1, claimedAt: 1 }, claimMessage: "" }
+            ),
+            Post.updateMany({}, { $pull: { likes: user._id, comments: { author: user._id } } }),
+            Campaign.deleteMany({ creator: user._id, donationCount: 0 }),
+            Campaign.updateMany({ creator: user._id }, { status: "closed" }),
+        ]);
+        await user.deleteOne();
+
+        res.json({ message: "User deleted successfully" });
+    })
+);
+
 // Public profile with the user's activity
 router.get(
     "/:id",
